@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants.dart';
 
 import '../components/maps.dart';
+import '../components/swichImage.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,9 +14,8 @@ class Home extends StatelessWidget {
     return Column(children: [
       Flexible(
         flex: 4,
-        child: Container(
-          color: kPrimaryColor,
-          child: GoogleMap(),
+        child: const SwichImage(
+          images: ["piscina_coperitna.jpg", "story.jpg", "activities.jpg"],
         ),
       ),
       Flexible(

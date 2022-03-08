@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/about.dart';
 import 'package:flutter_application_1/pages/home.dart';
 import 'package:flutter_application_1/tab/content_view.dart';
 import 'package:flutter_application_1/tab/custom_tab.dart';
@@ -22,8 +23,7 @@ class _HomePageState extends State<HomePage>
     ContentView(
         tab: const CustomTab(title: "About"),
         content: TabLayout(
-          child: Center(
-              child: Container(color: Colors.blue, width: 100, height: 100)),
+          child: const About(),
         )),
     ContentView(
         tab: const CustomTab(title: "Project"),
@@ -55,12 +55,22 @@ class _HomePageState extends State<HomePage>
 
   Widget desktopView() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        CustomTabBar(
-          controller: tabController,
-          tabs: contentViews.map((e) => e.tab).toList(),
+        Container(
+          // margin: EdgeInsets.fromLTRB(40, 20, 20, 20),
+          margin: EdgeInsets.all(20),
+          child: Row(
+            children: [
+              Align(
+                  alignment: Alignment.topRight,
+                  child: Image.asset("assets/images/logo.png")),
+              new Spacer(),
+              CustomTabBar(
+                controller: tabController,
+                tabs: contentViews.map((e) => e.tab).toList(),
+              ),
+            ],
+          ),
         ),
         Expanded(
           // height: MediaQuery.of(context).size.height * 0.8,
